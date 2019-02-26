@@ -7,12 +7,13 @@ go:
 go_import_path: k8s.io/minikube
 
 install:
-  - wget https://oplab9.parqtec.unicamp.br/pub/ppc64el/bazel/ubuntu_14.04/bazel_bin_ppc64le_0.21.0
-  - mv bazel_bin_ppc64le_0.21.0 /usr/local/bin/bazel 
-  - chmod +x /usr/local/bin/bazel 
+
 script:
   - cd ..
   - rm -rf -f bazel
   - git clone https://github.com/bazelbuild/bazel.git
   - cd bazel
-  - bazel build --host_javabase=@local_jdk//:jdk --javabase=@local_jdk//:jdk --host_java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8 --java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8  //src:bazel
+  - wget https://oplab9.parqtec.unicamp.br/pub/ppc64el/bazel/ubuntu_14.04/bazel_bin_ppc64le_0.21.0
+  - mv bazel_bin_ppc64le_0.21.0 bazel 
+  - chmod +x bazel 
+  - ./bazel build --host_javabase=@local_jdk//:jdk --javabase=@local_jdk//:jdk --host_java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8 --java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8  //src:bazel
