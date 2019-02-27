@@ -1,12 +1,11 @@
-language: go
+language: java
 os: linux-ppc64le
 sudo: required
-
-go:
-  - 1.x
-go_import_path: k8s.io/minikube
+jdk:
+  - openjdk8
 
 install:
+apt-get install build-essential python zip unzip
 
 script:
   - cd ..
