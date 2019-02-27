@@ -5,7 +5,7 @@ jdk:
   - openjdk8
 
 install:
-apt-get install build-essential python zip unzip
+apt-get install build-essential python zip unzip 
 
 script:
   - cd ..
