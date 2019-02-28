@@ -5,18 +5,16 @@ os: linux-ppc64le
 sudo: required
 
 jdk:
-  - openjdk8
+  - openjdk9
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y -qq build-essential python zip unzip 
+  - sudo apt-get install build-essential python zip unzip
 
 script:
   - git clone https://github.com/bazelbuild/bazel.git
   - cd ./bazel
-  - wget https://oplab9.parqtec.unicamp.br/pub/ppc64el/bazel/ubuntu_14.04/bazel_bin_ppc64le_0.21.0
-  - mv bazel_bin_ppc64le_0.21.0 bazel 
-  - chmod +x bazel
+  - git checkout -t origin/release-0.23.1
   - java -version
   - java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home'
   - ./bazel build --host_javabase=@bazel_tools//tools/jdk:absolute_javabase --define=ABSOLUTE_JAVABASE=/usr/lib/jvm/java-8-openjdk-ppc64el/ //src:bazel
