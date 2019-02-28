@@ -11,6 +11,9 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y -qq build-essential python zip unzip
 
+env:
+  - EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk"
+
 script:
   - git clone https://github.com/bazelbuild/bazel.git
   - cd ./bazel
@@ -18,4 +21,4 @@ script:
   - chmod +x bazel
   - java -version
   - java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home'
-  - env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk" bash ./compile.sh
+  - ./compile.sh
