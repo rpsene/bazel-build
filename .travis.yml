@@ -18,7 +18,4 @@ script:
   - git clone https://github.com/bazelbuild/bazel.git
   - cd ./bazel
   - git checkout -t origin/release-0.23.1
-  - chmod +x bazel
-  - java -version
-  - java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home'
   - ./compile.sh
