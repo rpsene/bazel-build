@@ -14,7 +14,6 @@ before_install:
 script:
   - git clone https://github.com/bazelbuild/bazel.git
   - cd ./bazel
-  - git checkout -t origin/release-0.23.1zel
   - git checkout -t origin/release-0.23.1
   - chmod +x bazel
   - java -version
