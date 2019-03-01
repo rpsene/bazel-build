@@ -1,10 +1,12 @@
 language: java
 
-os: 
-  - linux-ppc64le
-    env: BAZEL_VERSION=0.23.0
-  - linux-ppc64le
-    env: BAZEL_VERSION=0.22.0
+matrix:
+    include:
+        os: 
+            - linux-ppc64le
+              env: BAZEL_VERSION=0.23.0
+            - linux-ppc64le
+              env: BAZEL_VERSION=0.22.0
 
 sudo: required
 
