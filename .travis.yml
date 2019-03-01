@@ -15,7 +15,7 @@ env:
   - EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk"
 
 script:
-  - git clone https://github.com/bazelbuild/bazel.git
+  - wget https://github.com/bazelbuild/bazel/releases/download/0.23.0/bazel-0.23.0-dist.zip
+  - unzip ./bazel-0.23.0-dist -d ./bazel
   - cd ./bazel
-  - git checkout -t origin/release-0.23.1
   - ./compile.sh
